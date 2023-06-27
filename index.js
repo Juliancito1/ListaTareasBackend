@@ -3,6 +3,7 @@ import cors from 'cors'
 import morgan from 'morgan';
 import * as dotenv from 'dotenv';
 import './src/database/dbConnection'
+import tareasRouter from './src/routes/tareas.routes'
 
 dotenv.config();
 
@@ -15,9 +16,7 @@ app.listen(app.get("port"), () => {
 
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({extended: true}));
 app.use(morgan('dev'));
 
-app.get('/apitareas', (req,res)=>{
-    res.send('Esto es una prueba de la peticion get')
-})
+app.use("/apilistadetareas",tareasRouter);

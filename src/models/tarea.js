@@ -7,7 +7,7 @@ const tareaSchema = new Schema({
         maxLength: 100,
         unique: true,
         required: true,
-        match: "/^[A-Za-z0-9]{3,100}/"
+        match: /^[A-Za-z0-9\s]{3,100}$/
     }
 })
 
