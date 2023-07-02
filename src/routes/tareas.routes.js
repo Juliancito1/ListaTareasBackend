@@ -1,13 +1,22 @@
-import { Router } from "express"
-import { crearTarea, obtenerTareas } from "../controllers/tareas.controllers"
+import { Router } from "express";
+import {
+  borrarTarea,
+  crearTarea,
+  editarTarea,
+  obtenerTarea,
+  obtenerTareas,
+} from "../controllers/tareas.controllers";
 
-
-const router = Router()
+const router = Router();
 
 // app.get('/apitareas', (req,res)=>{
 //     res.send('Esto es una prueba de la peticion get')
 // })
 
-router.route('/tareas').get(obtenerTareas).post(crearTarea)
-
-export default router
+router.route("/tareas").get(obtenerTareas).post(crearTarea);
+router
+  .route("/productos/:id")
+  .delete(borrarTarea)
+  .put(editarTarea)
+  .get(obtenerTarea);
+export default router;
