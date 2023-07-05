@@ -15,7 +15,7 @@ const router = Router();
 
 router.route("/tareas").get(obtenerTareas).post(crearTarea);
 router
-  .route("/productos/:id")
+  .route("/tareas/:id")
   .delete(borrarTarea)
   .put(editarTarea)
   .get(obtenerTarea);
